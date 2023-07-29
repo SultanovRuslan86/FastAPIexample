@@ -27,11 +27,20 @@ sessionlocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 Article = Table(
+
     'article',
     metadata,
     Column("id", Integer, primary_key=True),
     Column("title", String(100)),
-    Column("description", String(500)),
-)
+    Column("description", String(500))
 
-Base = declarative_base()
+)
+# class Article(Base):
+#     __tablename__ = 'articledb'
+#
+#     Column("id", Integer, primary_key=True)
+#     Column("title", String(100))
+#     Column("description", String(500))
+#
+# Base.metadata.create_all(bind=engine)
+
